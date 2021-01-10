@@ -2,5 +2,7 @@
     <string name="app_name">Tic Tac Toe</string>
     <string name="player1_0">Player1: 0</string>
     <string name="player2_x">Player2: X</string>
+    <string name="tieText">Woahh.... a Tie!!!</string>
+    <string name="winText">%1$s WON!!!</string>
     <string name="name">Name</string>
 </resources>
