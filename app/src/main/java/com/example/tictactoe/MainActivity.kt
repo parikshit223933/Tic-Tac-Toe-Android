@@ -113,12 +113,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hasWon(player: String): Boolean {
-        for (row in matrix) {
+        for (row in matrix) { // HORIZONTAL CHECK
             if (row.all { it == player }) {
                 return true;
             }
         }
-        for (i in 0..2) {
+        for (i in 0..2) { // VERTICAL CHECK
             var count = 0;
             for (j in 0..2) {
                 if (matrix[j][i] == player) {
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         var count = 0;
-        for (i in 0..2) {
+        for (i in 0..2) { // MAIN DIAGONAL (WHICH GOES FROM LEFT TO RIGHT)
             if (matrix[i][i] == player) {
                 count++;
             }
@@ -138,16 +138,14 @@ class MainActivity : AppCompatActivity() {
         if (count == 3) {
             return true;
         }
-        for (i in 0..2) {
-            count = 0
-            for (j in 2 downTo 0) {
-                if (matrix[i][j] == player) {
-                    count++;
-                }
+        count = 0
+        for (i in 0..2) { // SECONDARY DIAGONAL WHICH GOES FROM RIGHT TO LEFT
+            if (matrix[2 - i][i] == player) {
+                count++;
             }
-            if (count == 3) {
-                return true;
-            }
+        }
+        if (count == 3) {
+            return true;
         }
         return false;
     }
